@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Signin Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/signin.css}" rel="stylesheet">
+</head>
+
+<body class="text-center" style=background-image:url("../img/three.jpg")>
+<form class="form-signin" th:action="@{login}">
+    <img class="mb-4" th:src="@{/img/bootstrap-solid.svg}" alt="" width="100" height="100">
+    <h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}">Please sign in</h1>
+
+    <!--警告信息：如果 msg 值不为空，才显示-->
+    <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+
+    <label class="sr-only" th:text="#{login.username}">Username</label>
+    <!--请求返回的用户名-->
+    <input type="text" name="username" class="form-control" th:placeholder="#{login.username}" required="" autofocus="">
+    <label class="sr-only" th:text="#{login.password}">Password</label>
+    <!--请求返回的密码-->
+    <input type="password" name="password" class="form-control" th:placeholder="#{login.password}" required="">
+    <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" value="remember-me">[[#{login.remember}]]
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">[[#{login.btn}]]</button>
+    <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+    <a class="btn btn-sm" th:href="@{/index.html(l='zh_CN')}">中文</a>
+    <a class="btn btn-sm" th:href="@{/index.html(l='en_US')}">English</a>
+</form>
+
+</body>
+
+</html>

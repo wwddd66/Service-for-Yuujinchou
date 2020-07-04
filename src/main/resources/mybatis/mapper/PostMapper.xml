@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dane.springboot.demo.mapper.PostMapper">
+    <select id="queryPostList" resultType="Post">
+        select * from post
+    </select>
+
+    <select id="queryPostListById" parameterType="int" resultType="Post">
+        select * from post where id=#{id}
+    </select>
+
+    <insert id="addPost" parameterType="Post">
+        insert into post (userid,content,date,likes,comments)
+        values (#{userId},#{content},#{date},#{likes},#{comments})
+    </insert>
+
+    <update id="updatePost" parameterType="Post">
+        update post set content=#{content}, date=#{date}
+                    where id=#{id}
+    </update>
+
+    <delete id="deletePost" parameterType="int">
+        delete from post where id=#{id}
+    </delete>
+
+
+</mapper>
+

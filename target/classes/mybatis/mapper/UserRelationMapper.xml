@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dane.springboot.demo.mapper.UserRelationMapper">
+    <select id="queryRelationList" resultType="UserRelation">
+        select * from userrelation
+    </select>
+
+    <select id="addRelation" parameterType="UserRelation">
+        insert into userrelation (userid,friendid) values (#{userId},#{friendId})
+    </select>
+
+    <select id="deleteRelation" parameterType="int">
+        delete from userrelation where id=#{id}
+    </select>
+</mapper>
+
